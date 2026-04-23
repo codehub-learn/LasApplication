@@ -2,29 +2,50 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <fstream>
 #include "Project.h"
 #include "Developer.h"
 
 void Ui::UiAtWork() {
-    // Create developers
-    Developer dev1(1, "Alice");
-    Developer dev2(2, "Bob");
+ 
+	// for each developer, read from file and create Developer object and push int developers vector
+    vector<Developer> developers;
+	string fileName = "developers.txt";
 
-    // Create projects
-    Project p1(101, "AI System");
-    Project p2(102, "Web API");
-    Project p3(103, "Mobile App");
+    ifstream file1(fileName);
+    if (file1.is_open()) {
+        string name;
+        int id = 1;
+        while (getline(file1, name)) {
+            Developer dev(id++, name);
+            developers.push_back(dev);
+        }
+        file1.close();
+    }   
+
+    // for each project, read from file and create Project object and push int project vector
+    vector<Project> projects;
+    fileName = "projects.txt";
+
+    ifstream file2(fileName);
+    if (file2.is_open()) {
+        string name;
+        int id = 1;
+        while (getline(file2, name)) {
+            Project proj(id++, name);
+            projects.push_back(proj);
+        }
+        file2.close();
+    }
+
 
     // Assign projects
-    dev1.addProject(p1);
-    dev1.addProject(p2);
+    developers[0].addProject(projects[0]);
+    developers[0].addProject(projects[1]);
 
-    dev2.addProject(p3);
+    developers[1].addProject(projects[2]);
 
-    // Store developers in vector
-    vector<Developer> developers;
-    developers.push_back(dev1);
-    developers.push_back(dev2);
+ 
 
     // Iterate developers and their projects
     for (const auto& dev : developers) {
