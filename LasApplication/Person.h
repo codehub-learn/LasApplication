@@ -15,6 +15,7 @@ private:
 		float weight;
 public:
 	Person();
+	~Person();
 	void print();
 
 	void setAge(int a);

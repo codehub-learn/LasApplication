@@ -52,3 +52,6 @@ void Person::print()
 	std::cout << "Weight: " << weight << std::endl;
 }
 
+Person::~Person() {
+
+}
