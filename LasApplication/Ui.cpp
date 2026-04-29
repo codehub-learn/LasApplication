@@ -9,7 +9,7 @@
 void Ui::UiAtWork() {
  
 	// for each developer, read from file and create Developer object and push int developers vector
-    vector<Developer> developers;
+    vector<Developer> developers ;
 	string fileName = "developers.txt";
 
     ifstream file1(fileName);
@@ -32,7 +32,7 @@ void Ui::UiAtWork() {
         string name;
         int id = 1;
         while (getline(file2, name)) {
-            Project proj(id++, name);
+            Project proj(name, id++ );
             projects.push_back(proj);
         }
         file2.close();
@@ -40,23 +40,24 @@ void Ui::UiAtWork() {
 
 
     // Assign projects
+ 
     developers[0].addProject(projects[0]);
-    developers[0].addProject(projects[1]);
+   developers[0].addProject(projects[1]);
 
     developers[1].addProject(projects[2]);
 
  
-
-    // Iterate developers and their projects
+	//iterate through developers and print their projects
     for (const auto& dev : developers) {
-        cout << "Developer: " << dev.getName() << "\n";
-
-        for (const auto& proj : dev.getProjects()) {
-            cout << "  Project: " << proj.getName() << "\n";
+        cout << "Developer: " << dev.getName() << endl;
+        cout << "Projects: " << endl;
+        for (const auto& proj : projects) {
+             
+                cout << "- " << proj.name << endl;
+            }
         }
-
         cout << endl;
-    }
+	}
+   
 
-
-}
+ 

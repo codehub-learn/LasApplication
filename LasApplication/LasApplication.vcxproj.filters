@@ -47,6 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="developers.txt" />
-    <Text Include="projexts.txt" />
+    <Text Include="projects.txt" />
   </ItemGroup>
 </Project>

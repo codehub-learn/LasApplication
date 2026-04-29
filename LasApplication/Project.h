@@ -1,16 +1,18 @@
 #pragma once
+#include <iostream>
+#include <vector>
 #include <string>
+
 using namespace std;
+
 
 class Project {
 private:
-    int id;
-    string name;
 
 public:
-    Project(int id, const string& name)
-        : id(id), name(name) {}
+    string name;
+    int durationMonths;
 
-    int getId() const { return id; }
-    string getName() const { return name; }
+    Project(const string& name, int duration)
+        : name(name), durationMonths(duration) {}
 };
