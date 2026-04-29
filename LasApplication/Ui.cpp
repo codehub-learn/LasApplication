@@ -42,22 +42,18 @@ void Ui::UiAtWork() {
     // Assign projects
  
     developers[0].addProject(projects[0]);
-   developers[0].addProject(projects[1]);
+    developers[0].addProject(projects[1]);
 
     developers[1].addProject(projects[2]);
 
  
 	//iterate through developers and print their projects
     for (const auto& dev : developers) {
-        cout << "Developer: " << dev.getName() << endl;
-        cout << "Projects: " << endl;
-        for (const auto& proj : projects) {
-             
-                cout << "- " << proj.name << endl;
-            }
-        }
-        cout << endl;
-	}
+        cout << dev << endl;
+     }
+     cout << endl;
+
+}
    
 
  
